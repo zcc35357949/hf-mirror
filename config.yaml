@@ -1,0 +1,21 @@
+proxy:
+  addr: "0.0.0.0:8082"
+  proxy_url: "http://127.0.0.1:8082/"
+  targets: [ "https://huggingface.co", "https://cdn-lfs.huggingface.co", "https://oss-endpoint.xxx.com" ]
+meta_cache:
+  Shards: 1024
+  LifeWindow: 24h0m0s
+  clean_window: 10s
+  MaxEntriesInWindow: 1000
+  MaxEntrySize: 4096
+local_cache:
+  cache_dir: "/hf-mirror/blobs"
+remote_cache:
+  cache_dir: "huggingface/blobs/"
+  s3:
+    endpoint: "https://oss-endpoint.xxx.com"
+    region: ""
+    bucket: ""
+    ak: ""
+    sk: ""
+  concurrent: 3
